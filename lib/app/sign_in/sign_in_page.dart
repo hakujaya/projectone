@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project_ras/app/dashboard/dashboard.dart';
 import 'package:project_ras/app/sign_in/email_signIn.dart';
@@ -11,11 +12,8 @@ class SignInPage extends StatelessWidget {
   static const biru = Color(0xFF3CACDE);
 
   Future<void> _signInAnynomously() async {
-    try {
-      await auth.signInAnonymously();
-    } catch (e) {
-      print(e.toString());
-    }
+    final userCredentials = await FirebaseAuth.instance.signInAnonymously();
+    print('${userCredentials.user.uid}');
   }
 
   void _signInWithEmail(BuildContext context) {
