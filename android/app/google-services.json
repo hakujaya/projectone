@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "928753714706",
+    "project_id": "project-ras",
+    "storage_bucket": "project-ras.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:928753714706:android:534a1b12dfbed76304bacb",
+        "android_client_info": {
+          "package_name": "com.hakujaya.projectras.project_ras"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "928753714706-soaag4se47lqagmfeh2k0p2qcqvdphl3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.hakujaya.projectras.project_ras",
+            "certificate_hash": "7df72fdbfc916673062173129d3551bae88382cc"
+          }
+        },
+        {
+          "client_id": "928753714706-n8q9qajgli4bs5f8200qrtn01l6ahaqj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0eBJBZTBrzZlypbUbxBY8Om0v0fcxB4o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "928753714706-n8q9qajgli4bs5f8200qrtn01l6ahaqj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "928753714706-ja3bkv95bkuarueqvgk3p8glr6qs0fq8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.codingwithflutter.timeTrackerFlutterCourse"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
