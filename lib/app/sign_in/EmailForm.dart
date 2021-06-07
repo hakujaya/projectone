@@ -20,9 +20,10 @@ class _EmailFormState extends State<EmailForm> {
 
   String get _email => _emailController.text;
   String get _password => _passwordController.text;
-  EmailFormType _formType = EmailFormType.signIn;
+  EmailFormType _formType = EmailFormType.register;
   bool _submitted = false;
   bool _isLoading = false;
+  bool _showText = false;
 
   void _submit() async {
     setState(() {
@@ -35,7 +36,6 @@ class _EmailFormState extends State<EmailForm> {
       } else {
         await widget.auth.createUserWithEmailAndPassword(_email, _password);
       }
-      Navigator.of(context).pop();
     } catch (e) {
       print(e.toString());
     } finally {
@@ -48,9 +48,9 @@ class _EmailFormState extends State<EmailForm> {
   void _toggleFormType() {
     setState(() {
       _submitted = false;
-      _formType = _formType == EmailFormType.signIn
-          ? EmailFormType.register
-          : EmailFormType.signIn;
+      _formType = _formType == EmailFormType.register
+          ? EmailFormType.signIn
+          : EmailFormType.register;
     });
     _emailController.clear();
     _passwordController.clear();
@@ -58,11 +58,12 @@ class _EmailFormState extends State<EmailForm> {
 
   List<Widget> _buildEmailForm() {
     final primaryText =
-        _formType == EmailFormType.signIn ? 'Log Masuk' : 'Daftar';
-    final secondaryText = _formType == EmailFormType.signIn
-        ? 'Pengguna baru? Tekan untuk Daftar'
-        : 'Sudah daftar? Tekan untuk Log Masuk';
+        _formType == EmailFormType.register ? 'Daftar' : 'Log Masuk';
+    final secondaryText = _formType == EmailFormType.register
+        ? 'Sudah daftar? Tekan untuk Log Masuk'
+        : 'Pengguna baru? Tekan untuk Daftar';
 
+    bool visibility = _formType == EmailFormType.register ? true : false;
     bool submitEnabled = widget.emailValidator.isValid(_email) &&
         widget.passwordValidator.isValid(_password) &&
         !_isLoading;
@@ -100,6 +101,19 @@ class _EmailFormState extends State<EmailForm> {
         height: 15.0,
       ),
       _buildPasswordTextField(),
+      Visibility(
+        visible: visibility,
+        child: Padding(
+          padding: EdgeInsets.only(top: 20),
+          child: Center(
+            child: Text(
+              "Peringatan: Kata Laluan hendaklah melebihi lapan(8) aksara.",
+              style: TextStyle(color: Colors.white),
+              textAlign: TextAlign.center,
+            ),
+          ),
+        ),
+      ),
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
         child: SizedBox(
@@ -114,7 +128,7 @@ class _EmailFormState extends State<EmailForm> {
             secondaryText,
             style: TextStyle(
                 color: Colors.white, decoration: TextDecoration.underline),
-          ))
+          )),
     ];
   }
 
@@ -181,7 +195,7 @@ class _EmailFormState extends State<EmailForm> {
           ),
           borderSide: BorderSide(color: Colors.white, width: 1.0),
         ),
-        labelText: 'Username',
+        labelText: 'Email',
         hintText: 'Contoh: abc@gmail.com',
       ),
     );

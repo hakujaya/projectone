@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:project_ras/app/sign_in/sign_in_page.dart';
+import 'package:project_ras/app/register/register_form.dart';
 import 'package:project_ras/services/Auth.dart';
 
 Future<void> main() async {
@@ -15,15 +15,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Time Tracker',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
-      home: SignInPage(auth: Auth()),
+        title: 'Time Tracker',
+        theme: ThemeData(
+          primarySwatch: Colors.indigo,
+        ),
+        home: SignUpPage()
+        //SignInPage(auth: Auth()),
 
-      // LandingPage(
-      //   auth: Auth(),
-      // ),
-    );
+        // LandingPage(
+        //   auth: Auth(),
+        // ),
+        );
   }
 }
