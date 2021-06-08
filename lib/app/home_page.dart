@@ -24,6 +24,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: biru,
         title: Text('Home Page'),
         actions: [
+          // ignore: deprecated_member_use
           FlatButton(
               onPressed: _signOut,
               child: Text(

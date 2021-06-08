@@ -11,6 +11,7 @@ class SignInPage extends StatelessWidget {
   static const hijau = Color(0xFF5CD297);
   static const biru = Color(0xFF3CACDE);
 
+  // ignore: unused_element
   Future<void> _signInAnynomously() async {
     final userCredentials = await FirebaseAuth.instance.signInAnonymously();
     print('${userCredentials.user.uid}');

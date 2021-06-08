@@ -32,9 +32,11 @@ class Auth implements AuthBase {
   }
 
   @override
+  // ignore: missing_return
   Future<User> createUserWithEmailAndPassword(
       String email, String password) async {
     try {
+      // ignore: unused_local_variable
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
